@@ -1,0 +1,2 @@
+class Natsgame < ApplicationRecord
+end

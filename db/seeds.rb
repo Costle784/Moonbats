@@ -1,21 +1,29 @@
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'Was2016.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'natsgames12-16.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Was2016game.new
-  t.gamenumber = row['gamenumber']
+  t = Natsgame.new
+  t.refdate = row['refdate']
+  t.refdate2 = row['refdate2']
   t.date = row['date']
   t.team = row['team']
-  t.opp = row['opp']
-  t.wl = row['wl']
-  t.runs = row['runs']
-  t.runsallowed = row['runsallowed']
+  t.opponent = row['opponent']
   t.win = row['win']
-  t.loss = row['loss']
-  t.pitch = row['pitch']
-  t.attendance = row['attendance']
+  t.runs = row['runs']
+  t.runs_allowed = row['runs_allowed']
   t.save
 end
 
-puts "There are now #{Was2016game.count} rows in the transactions table"
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases12-16.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Moonphase.new
+  t.date = row['date']
+  t.phase = row['phase']
+  t.save
+end
+
+
+#
+# puts "There are now #{Natsgame.count} rows in the natsgames table"
