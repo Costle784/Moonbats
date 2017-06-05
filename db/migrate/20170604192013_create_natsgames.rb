@@ -1,8 +1,8 @@
 class CreateNatsgames < ActiveRecord::Migration[5.0]
   def change
     create_table :natsgames do |t|
-      t.string :refdate
-      t.string :refdate2
+      t.date :refdate
+      t.date :refdate2
       t.date :date
       t.string :team
       t.string :opponent

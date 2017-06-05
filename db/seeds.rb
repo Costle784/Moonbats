@@ -4,8 +4,6 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'natsgames12-16.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Natsgame.new
-  t.refdate = row['refdate']
-  t.refdate2 = row['refdate2']
   t.date = row['date']
   t.team = row['team']
   t.opponent = row['opponent']
