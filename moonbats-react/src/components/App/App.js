@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import SearchContainer from '../TeamPicker/TeamPicker.js'
+import TeamPicker from '../TeamPicker/TeamPicker.js'
 import Results from '../Results/Results.js'
 import {
   BrowserRouter as Router,
@@ -15,36 +15,41 @@ class App extends Component {
     super()
     this.state = {
       teamOptions: [
-        {team: "Washington Nationals"}
-      ]
+        {team: "Washington Nationals",
+        team: "Detroit Tigers"
+      }],
+      selectedTeam: null
     }
   }
-  render(){
+  // this.viewSchedule(e) {
+  //
+  // }
+  render() {
     return(
       <Router>
         <div>
           <h1>Moonbats!</h1>
           <nav>
             <Link to="/">Home</Link>
-          </nav>    
+          </nav>
           <main>
+            <h3>Choose Your Team</h3>
             <Route
               exact path='/'
               render={() => {
                 return (
-                  <Dashboard stocks={this.state.stocks} />
+                  <TeamPicker />
+                    // viewSchedule={(e) => this.viewSchedule }
+
+                  // <scheduleContainer />
                 )
               }}
             />
+          </main>
+        </div>
+      </Router>
     )
   }
-
-
 }
-
-
-
-
-
 
 export default App;
