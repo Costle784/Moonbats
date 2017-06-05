@@ -10,7 +10,37 @@ import {
 } from 'react-router-dom'
 import './App.css'
 
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      teamOptions: [
+        {team: "Washington Nationals"}
+      ]
+    }
+  }
+  render(){
+    return(
+      <Router>
+        <div>
+          <h1>Moonbats!</h1>
+          <nav>
+            <Link to="/">Home</Link>
+          </nav>    
+          <main>
+            <Route
+              exact path='/'
+              render={() => {
+                return (
+                  <Dashboard stocks={this.state.stocks} />
+                )
+              }}
+            />
+    )
+  }
 
+
+}
 
 
 
