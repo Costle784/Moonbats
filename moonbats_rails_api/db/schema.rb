@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606182944) do
+ActiveRecord::Schema.define(version: 20170606192303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20170606182944) do
     t.string  "opp"
     t.string  "wl"
     t.index ["team_id"], name: "index_games_on_team_id", using: :btree
+  end
+
+  create_table "moonphases", force: :cascade do |t|
+    t.date    "date"
+    t.integer "phase"
   end
 
   create_table "teams", force: :cascade do |t|

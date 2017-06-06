@@ -2,6 +2,7 @@ require 'csv'
 
 Team.destroy_all
 Game.destroy_all
+Moonphase.destroy_all
 
 
 nationals = Team.create!({
@@ -100,65 +101,11 @@ csv.each do |row|
   t.save
 end
 
-
-
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2015.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d')
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
-#
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2014.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d')
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
-#
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2013.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d')
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
-#
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2012.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Game.new
-#   t.date = DateTime.strptime(row['date'], '%A %b %d')
-#   t.team = Team.find_by(symbol: row['team'])
-#   t.opp = row['opp']
-#   t.wl = row['wl']
-#   t.save
-# end
-
-
-
-
-
-
-
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases12-16.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Moonphase.new
-#   t.date = row['date']
-#   t.phase = row['phase']
-#   t.save
-# end
-#
-#
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases12-16.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Moonphase.new
+  t.date = row['date']
+  t.phase = row['phase']
+  t.save
+end
