@@ -1,7 +1,7 @@
 body {
   text-align:center;
-  background: url('https://images.fineartamerica.com/images-medium-large/baseball-moon-bill-cannon.jpg');
-  background-size:cover;
+  background:#000;
+  color:#FFF;
 }
 
 h1 {
@@ -11,8 +11,9 @@ h1 {
   font-family: 'Cinzel', serif;
 }
 header {
-  margin:0;
-  background-image:url('http://coolcosmos.ipac.caltech.edu/assets/site/home/IRuniverse-11f4ba348cda7065011a4b52c648cb25.jpg');
+  margin:0 auto;
+  background-image:url('https://images.fineartamerica.com/images-medium-large/baseball-moon-bill-cannon.jpg');
+  background-size: contain;
 }
 nav {
   padding:10px;

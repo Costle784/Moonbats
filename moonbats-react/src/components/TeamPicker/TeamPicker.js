@@ -18,8 +18,4 @@ class TeamPicker extends Component {
     )
   }
 }
-
-
-
-
 export default TeamPicker

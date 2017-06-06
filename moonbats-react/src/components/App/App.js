@@ -18,14 +18,17 @@ class App extends Component {
     this.state = {
       teamOptions: [
         {name: "Washington Nationals"},
-        {name: "Detroit Tigers"}
+        {name: "Philadelphia Phillies"},
+        {name: "Miami Marlins"},
+        {name: "New York Mets"},
+        {name: "Atlanta Braves"}
       ],
       teamSymbol: []
     }
   }
    addSchedule(e) {
      this.setState({
-      //  teamSymbol
+       axios.get
      })
    }
   //
