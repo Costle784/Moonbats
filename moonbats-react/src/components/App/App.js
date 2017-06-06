@@ -20,12 +20,13 @@ class App extends Component {
         {name: "Washington Nationals"},
         {name: "Detroit Tigers"}
       ],
-      selectedTeam: null,
-      hasSchedule: false
+      teamSymbol: []
     }
   }
-   handleChange(e) {
-
+   addSchedule(e) {
+     this.setState({
+      //  teamSymbol
+     })
    }
   //
   // }
@@ -33,10 +34,12 @@ class App extends Component {
     return(
       <Router>
         <div>
-          <h1>Moonbats!</h1>
-          <nav>
-            <Link to="/">Home</Link>
-          </nav>
+          <header>
+            <h1>Moonbats</h1>
+            <nav>
+              <Link to="/">Home</Link>
+            </nav>
+          </header>
           <main>
             <h3>Choose Your Team</h3>
             <Route
@@ -46,7 +49,7 @@ class App extends Component {
                   <div>
                     <TeamPicker
                       teamOptions={this.state.teamOptions}
-                      handleChange={(e) => this.handleChange(e)}
+                      handleChange={(e) => this.addSchedule(e)}
                       />
 
 

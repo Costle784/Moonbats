@@ -1,24 +1,26 @@
-.App {
-  text-align: center;
+body {
+  text-align:center;
+  background: url('https://images.fineartamerica.com/images-medium-large/baseball-moon-bill-cannon.jpg');
+  background-size:cover;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h1 {
+  margin: 0px;
+  padding:10px;
+  font-size:80px;
+  font-family: 'Cinzel', serif;
+}
+header {
+  margin:0;
+  background-image:url('http://coolcosmos.ipac.caltech.edu/assets/site/home/IRuniverse-11f4ba348cda7065011a4b52c648cb25.jpg');
+}
+nav {
+  padding:10px;
 }
 
-.App-header {
+/*.App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+}*/

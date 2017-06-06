@@ -9,13 +9,9 @@ class ScheduleContainer extends Component {
     }
   }
   render() {
-    const schedule = [];
 
     return (
-      <div>
-        <h3>Pick a game</h3>
-        <div id='schedulecontainer'>Schedule goes here</div>
-      </div>
+      <h4>schedule</h4>
     )
   }
 }
