@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
 import './ScheduleContainer.css'
 
 
 class ScheduleContainer extends Component {
-    constructor() {
-      super()
-      this.state = {
+    constructor(props) {
+      super(props)
     }
-  }
   render() {
+    let schedule = this.props.schedule.map((game, i) => {
+
+      return <p key={i}> {game.date} vs {game.opp} </p>
+
+
+    })
+
+    console.log(this.props.schedule)
 
     return (
-      <h4>schedule</h4>
+      <div>{schedule}</div>
     )
   }
 }

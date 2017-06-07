@@ -101,11 +101,11 @@ csv.each do |row|
   t.save
 end
 
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Moonphase.new
-#   t.date = DateTime.strptime(row['date'], '%m %d %Y')
-#   t.phase = row['phase']
-#   t.save
-# end
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'moonphases.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Moonphase.new
+  t.date = DateTime.strptime(row['date'], '%m/%d/%Y')
+  t.phase = row['phase']
+  t.save
+end

@@ -23,16 +23,18 @@ class App extends Component {
         {name: "New York Mets"},
         {name: "Atlanta Braves"}
       ],
-      teamSymbol: []
+      schedule: [],
     }
   }
-   addSchedule(e) {
-     this.setState({
-       axios.get
-     })
-   }
-  //
-  // }
+  addSchedule(e) {
+    e.preventDefault()
+    let pathname = `http://localhost:3000/teams/${e.target.value}/futuregames`
+    axios.get(pathname).then((response) => {
+      this.setState({
+        schedule: response.data
+      })
+    })
+  }
   render() {
     return(
       <Router>
@@ -45,24 +47,14 @@ class App extends Component {
           </header>
           <main>
             <h3>Choose Your Team</h3>
-            <Route
-              exact path='/'
-              render={() => {
-                return (
-                  <div>
-                    <TeamPicker
-                      teamOptions={this.state.teamOptions}
-                      handleChange={(e) => this.addSchedule(e)}
-                      />
+            <Route exact path='/' render={() =>
+              <div>
+              <TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)}/>
+              <ScheduleContainer schedule={this.state.schedule} />
+            // <SelectedTeamContainer />
 
-
-                      <ScheduleContainer />
-                      <SelectedTeamContainer />
-
-                  </div>
-                )
-              }}
-            />
+              </div>
+            }/>
           </main>
         </div>
       </Router>

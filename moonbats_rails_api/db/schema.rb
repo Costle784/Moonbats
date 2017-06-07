@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606204059) do
+ActiveRecord::Schema.define(version: 20170607124420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170606204059) do
   end
 
   create_table "moonphases", force: :cascade do |t|
-    t.datetime "date"
-    t.integer  "phase"
+    t.date    "date"
+    t.integer "phase"
   end
 
   create_table "teams", force: :cascade do |t|

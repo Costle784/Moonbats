@@ -11,4 +11,11 @@ class TeamsController < ApplicationController
 
     render json: @team, include: :games
   end
+  def futuregames
+    @team = Team.find(params[:id])
+    @games = @team.games.where("date > ?", DateTime.now)
+    render json: @games
+  end
+
+
 end
