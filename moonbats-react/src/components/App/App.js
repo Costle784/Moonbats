@@ -81,7 +81,7 @@ class App extends Component {
             }/>
             <Route path='/teams/:team_id/games/:id' render={(props) => {
               return(
-                <SelectedGame {...props.match.params} schedule={this.state.schedule} />
+                <SelectedGame {...props.match.params} schedule={this.state.schedule} teamOptions={this.state.teamOptions} />
               )
             }}/>
             <Route path='/results' render={() =>
