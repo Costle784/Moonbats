@@ -9,8 +9,10 @@ class ScheduleContainer extends Component {
   }
   render() {
     let logo = this.props.selectedTeam.logo
+
     let schedule = this.props.schedule.map((game, i) => {
-      return <p key={i}><a href=''> {game.date} vs {game.opp} </a></p>
+      let pathname = `/teams/${game.team_id}/games/${game.id}`
+      return <div key={i} ><Link to={{pathname}}>{game.date} vs {game.opp}</Link></div>
     })
     return (
       <div>

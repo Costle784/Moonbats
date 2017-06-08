@@ -25,7 +25,7 @@ class App extends Component {
       ],
       schedule: [],
       selectedTeam:[],
-      hasSearched:false
+      hasSearched:false,
     }
   }
   addSchedule(e) {
@@ -43,6 +43,10 @@ class App extends Component {
         selectedTeam: response.data
       })
     })
+  }
+
+  handleClick(e) {
+    e.preventDefault()
   }
 
   clearSearch() {
@@ -64,16 +68,22 @@ class App extends Component {
           <main>
             <Route exact path='/' render={() => {
               if(this.state.hasSearched) {
-                  return <Redirect to='/games' />
+                let pathname = `/teams/${this.state.selectedTeam.id}/games`
+                  return <Redirect to={pathname} />
                 }
               return (
                 <TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)} />
                 )
               }
             }/>
-            <Route path='/games' render={()=> <ScheduleContainer selectedTeam={this.state.selectedTeam} schedule={this.state.schedule} clearSearch={() => this.clearSearch()} />
+            <Route exact path='/teams/:id/games' render={()=> <ScheduleContainer selectedTeam={this.state.selectedTeam} schedule={this.state.schedule} clearSearch={() => this.clearSearch()}/>
 
             }/>
+            <Route path='/teams/:team_id/games/:id' render={(props) => {
+              return(
+                <SelectedGame {...props.match.params} schedule={this.state.schedule} />
+              )
+            }}/>
             <Route path='/results' render={() =>
               <Results />
             }/>
