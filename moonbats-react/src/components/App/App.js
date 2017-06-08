@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import TeamPicker from '../TeamPicker/TeamPicker.js'
 import Results from '../Results/Results.js'
+import SelectedGame from '../SelectedGame/SelectedGame.js'
 import ScheduleContainer from '../ScheduleContainer/ScheduleContainer.js'
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  // Redirect
+  Redirect
 } from 'react-router-dom'
 import './App.css'
 
@@ -23,7 +24,8 @@ class App extends Component {
         {name: "Atlanta Braves"}
       ],
       schedule: [],
-      selectedTeam:[]
+      selectedTeam:[],
+      hasSearched:false
     }
   }
   addSchedule(e) {
@@ -32,7 +34,8 @@ class App extends Component {
     let futuregamespath = `http://localhost:3000/teams/${e.target.value}/futuregames`
     axios.get(futuregamespath).then((response) => {
       this.setState({
-        schedule: response.data
+        schedule: response.data,
+        hasSearched:true
       })
     })
     axios.get(logopath).then((response) => {
@@ -41,6 +44,13 @@ class App extends Component {
       })
     })
   }
+
+  clearSearch() {
+    this.setState({
+      hasSearched: false
+    })
+  }
+
   render() {
     return(
       <Router>
@@ -52,13 +62,20 @@ class App extends Component {
             </nav>
           </header>
           <main>
-            <Route exact path='/' render={() =>
-              <div>
-              <TeamPicker selectedTeam={this.state.selectedTeam} teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)}/>
-              <ScheduleContainer schedule={this.state.schedule} />
+            <Route exact path='/' render={() => {
+              if(this.state.hasSearched) {
+                  return <Redirect to='/games' />
+                }
+              return (
+                <TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)} />
+                )
+              }
+            }/>
+            <Route path='/games' render={()=> <ScheduleContainer selectedTeam={this.state.selectedTeam} schedule={this.state.schedule} clearSearch={() => this.clearSearch()} />
 
-
-              </div>
+            }/>
+            <Route path='/results' render={() =>
+              <Results />
             }/>
           </main>
         </div>

@@ -4,12 +4,19 @@ import './ScheduleContainer.css'
 
 
 class ScheduleContainer extends Component {
+  componentDidMount() {
+    this.props.clearSearch()
+  }
   render() {
+    let logo = this.props.selectedTeam.logo
     let schedule = this.props.schedule.map((game, i) => {
-      return <p key={i}> {game.date} vs {game.opp} </p>
+      return <p key={i}><a href=''> {game.date} vs {game.opp} </a></p>
     })
     return (
-      <div>{schedule}</div>
+      <div>
+        <div><img src={logo} alt='' className='logo'/></div>
+        <div>{schedule}</div>
+      </div>
     )
   }
 }

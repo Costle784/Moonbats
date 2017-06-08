@@ -3,7 +3,7 @@ import './TeamPicker.css'
 
 class TeamPicker extends Component {
   render() {
-    let logo = this.props.selectedTeam.logo
+
     let teamOptions = this.props.teamOptions.map((team, index) => {
       return(
         <option key={index + 1} value={index + 1}>{team.name}</option>
@@ -13,12 +13,9 @@ class TeamPicker extends Component {
       <option key="0">select a team</option>
     )
     return (
-      <div>
-        <div><img src={logo} alt='' className='logo'/></div>
-        <select onChange={(e) => this.props.handleChange(e)}>
-          {teamOptions}
-        </select>
-      </div>
+      <select onChange={(e) => this.props.handleChange(e)}>
+        {teamOptions}
+      </select>
     )
   }
 }
