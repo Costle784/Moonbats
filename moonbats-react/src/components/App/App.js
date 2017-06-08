@@ -3,7 +3,6 @@ import axios from 'axios'
 import TeamPicker from '../TeamPicker/TeamPicker.js'
 import Results from '../Results/Results.js'
 import ScheduleContainer from '../ScheduleContainer/ScheduleContainer.js'
-import SelectedTeamContainer from '../SelectedTeamContainer/SelectedTeamContainer.js'
 import {
   BrowserRouter as Router,
   Route,
@@ -24,14 +23,21 @@ class App extends Component {
         {name: "Atlanta Braves"}
       ],
       schedule: [],
+      selectedTeam:[]
     }
   }
   addSchedule(e) {
     e.preventDefault()
-    let pathname = `http://localhost:3000/teams/${e.target.value}/futuregames`
-    axios.get(pathname).then((response) => {
+    let logopath = `http://localhost:3000/teams/${e.target.value}`
+    let futuregamespath = `http://localhost:3000/teams/${e.target.value}/futuregames`
+    axios.get(futuregamespath).then((response) => {
       this.setState({
         schedule: response.data
+      })
+    })
+    axios.get(logopath).then((response) => {
+      this.setState({
+        selectedTeam: response.data
       })
     })
   }
@@ -40,18 +46,17 @@ class App extends Component {
       <Router>
         <div>
           <header>
-            <h1>Moonbats</h1>
+            <h1 className='title'>Moonbats</h1>
             <nav>
               <Link to="/">Home</Link>
             </nav>
           </header>
           <main>
-            <h3>Choose Your Team</h3>
             <Route exact path='/' render={() =>
               <div>
-              <TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)}/>
+              <TeamPicker selectedTeam={this.state.selectedTeam} teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)}/>
               <ScheduleContainer schedule={this.state.schedule} />
-            // <SelectedTeamContainer />
+
 
               </div>
             }/>

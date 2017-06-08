@@ -3,17 +3,18 @@ import './TeamPicker.css'
 
 class TeamPicker extends Component {
   render() {
+    let logo = this.props.selectedTeam.logo
     let teamOptions = this.props.teamOptions.map((team, index) => {
       return(
         <option key={index + 1} value={index + 1}>{team.name}</option>
       )
     })
     teamOptions.unshift(
-      <option key="0">Team Select</option>
+      <option key="0">select a team</option>
     )
     return (
       <div>
-        <h1>hello</h1>
+        <div><img src={logo} alt='' className='logo'/></div>
         <select onChange={(e) => this.props.handleChange(e)}>
           {teamOptions}
         </select>

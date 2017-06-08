@@ -1,6 +1,6 @@
 body {
   text-align:center;
-  background:#000;
+  background:url('http://cdn.wallpapersafari.com/98/64/QoDIUF.jpg');
   color:#FFF;
 }
 
@@ -9,19 +9,15 @@ h1 {
   padding:10px;
   font-size:80px;
   font-family: 'Cinzel', serif;
+  color:#FFF;
+  text-shadow:0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
 }
 header {
   margin:0 auto;
   background-image:url('https://images.fineartamerica.com/images-medium-large/baseball-moon-bill-cannon.jpg');
   background-size: contain;
+  box-shadow: 0px 0px 50px #fff;
 }
 nav {
   padding:10px;
 }
-
-/*.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}*/

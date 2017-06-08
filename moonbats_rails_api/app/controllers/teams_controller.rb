@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @games = @team.games
 
-    render json: @team, include: :games
+    render json: @team
   end
   def futuregames
     @team = Team.find(params[:id])

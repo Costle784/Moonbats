@@ -20,7 +20,7 @@ phillies = Team.create!({
 braves = Team.create!({
   name:"Atlanta Braves",
   symbol:'ATL',
-  logo:'http://www.stickpng.com/assets/images/584d43fb0a44bd1070d5d435.png'
+  logo:'http://www.stickpng.com/assets/images/584d439b0a44bd1070d5d42e.png'
 })
 
 mets = Team.create!({
@@ -32,7 +32,7 @@ mets = Team.create!({
 marlins = Team.create!({
   name:'Miami Marlins',
   symbol:'MIA',
-  logo:'http://www.stickpng.com/assets/images/584d439b0a44bd1070d5d42e.png'
+  logo:'http://www.stickpng.com/assets/images/584d43fb0a44bd1070d5d435.png'
 })
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2017.csv'))
