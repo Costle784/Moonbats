@@ -7,10 +7,10 @@ class SelectedGame extends Component {
     let chosenGame = this.props.schedule.find((game) => {
       return `${game.id} === id && ${game.team_id} === teamid`
     })
-    let opponent = chosenGame.opp
+    console.log(chosenGame.id)
 
     return (
-      <div>{opponent}</div>
+      <div></div>
     )
   }
 }
