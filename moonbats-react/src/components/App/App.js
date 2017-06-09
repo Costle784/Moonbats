@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import TeamPicker from '../TeamPicker/TeamPicker.js'
-import Results from '../Results/Results.js'
 import SelectedGame from '../SelectedGame/SelectedGame.js'
 import ScheduleContainer from '../ScheduleContainer/ScheduleContainer.js'
 import {
@@ -45,10 +44,6 @@ class App extends Component {
     })
   }
 
-  handleClick(e) {
-    e.preventDefault()
-  }
-
   clearSearch() {
     this.setState({
       hasSearched: false
@@ -84,9 +79,6 @@ class App extends Component {
                 <SelectedGame {...props.match.params} schedule={this.state.schedule} teamOptions={this.state.teamOptions} />
               )
             }}/>
-            <Route path='/results' render={() =>
-              <Results />
-            }/>
           </main>
         </div>
       </Router>
