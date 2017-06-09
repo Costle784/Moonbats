@@ -59,8 +59,7 @@ class SelectedGame extends Component {
     })
   }
   render() {
-    // let moonphase = this.state.matchingPhases[0].phase
-    console.log(this.state.gamePhase)
+    let moonphase = this.state.phases[this.state.gamePhase - 1]
     let winCounter = 0;
     let total = this.state.matchingGames.length
     this.state.matchingGames.forEach((game) => {
@@ -68,19 +67,23 @@ class SelectedGame extends Component {
         winCounter += 1
       }
     })
-    let moonIndex = this.state.gamePhase + 1
-    let moonphase = this.state.phases[moonIndex]
-
     let percentage = Math.round(winCounter/total * 100)
-    let result = `There is a ${percentage}% chance the ${this.state.teamName} will win!`
+    let result = ''
+      if(this.state.gamePhase > 0) {
+          if(this.state.matchingGames.length === 0){
+            result=`No Data. These two teams have not played on a ${moonphase} moon in the last five years.`
+          }
+          else{
+          result=`This game will be played on a ${moonphase} moon. There is a ${percentage}% chance the ${this.state.teamName} will win!`
+        }
+      }
     return (
       <div>
         <h2>You have chosen the {this.state.teamName} vs. {this.state.opponent} on</h2>
         <h2>{this.state.date}</h2>
-        <h3>This game will be played on a {moonphase} moon</h3>
         <p className='consult'> Click Button to Consult the Moon! </p>
         <button onClick={() => this.handleClick()}>Moon</button>
-        <div>{result}</div>
+        <p className='result'>{result}</p>
       </div>
     )
   }
