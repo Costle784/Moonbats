@@ -16,6 +16,10 @@ class TeamsController < ApplicationController
     @games = @team.games.where("date > ?", DateTime.now)
     render json: @games
   end
-
+  def pastgames
+    @team = Team.find(params[:id])
+    @games = @team.games.where("date < ?",'2017-01-01')
+    render json: @games
+  end
 
 end

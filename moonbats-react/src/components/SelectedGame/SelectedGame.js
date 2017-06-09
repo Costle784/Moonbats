@@ -5,40 +5,65 @@ class SelectedGame extends Component {
   constructor() {
     super()
     this.state = {
-      phases:[]
+      phases:[],
+      date:[],
+      id:0,
+      teamid:0,
+      chosenGame:{},
+      opponent:'',
+      team:'',
+      teamName:'',
+      matchingPhases:[],  //all moonphases that match the phase of the game date
+      matchingGames:[]
     }
   }
   handleClick() {
-    axios.get('http://localhost:3000/moonphases').then((response) => {
+    axios.get(`http://localhost:3000/moonphases?date=${this.state.date}`).then((response) => {
      this.setState({
-       phases:response.data
+       matchingPhases:this.response
+     })
+    axios.get(`http://localhost:3000/teams/${this.state.teamid}/pastgames`).then((response) => {
+      response.filter((game) => {
+        return this.state.opponent === game.opp && this.state.matchingPhases.map((phase) => {
+          return game.date === phase.date
+        })
+      })
+      this.setState({
+
+        matchingGames:this.response
       })
     })
+  })
   }
-
-  render() {
-    let moonphase = this.state.phases.find((phase) => {
-      return phase.date ===   
-    })
-    let teamid = this.props.team_id
-    let id = this.props.id
+  componentDidMount() {
     let chosenGame = this.props.schedule.find((game) => {
-      return game.id == id && game.team_id == teamid
+      return game.id == this.props.id && game.team_id == this.props.team_id
     })
-    let opponent = chosenGame.opp
     let team = this.props.teamOptions.find((team, i) => {
-      return i + 1 == teamid
+      return i + 1 == this.props.team_id
     })
-    let teamName = team.name
-    let date = chosenGame.date
-
+    this.setState({
+      date:chosenGame.date,
+      teamid:this.props.team_id,
+      id:this.props.id,
+      chosenGame:chosenGame,
+      opponent:chosenGame.opp,
+      team:team,
+      teamName:team.name
+    })
+  }
+  render() {
+    // let matchingGames = this.state.matchingGames.map((game, i) => {
+    //   <div key={i}>{}
+    // })
 
     return (
       <div>
-        <h2>You have chosen the {teamName} vs. {opponent} on</h2>
-        <h2>{date}</h2>
+        <h2>You have chosen the {this.state.teamName} vs. {this.state.opponent} on</h2>
+        <h2>{this.state.date}</h2>
         <p> Click Button to Consult the Moon! </p>
         <button onClick={() => this.handleClick()}>Moon</button>
+
       </div>
     )
   }
