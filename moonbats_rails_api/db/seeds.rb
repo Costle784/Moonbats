@@ -57,7 +57,7 @@ csv.each do |row|
   t.save
 end
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2016.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2015.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Game.new
@@ -68,7 +68,7 @@ csv.each do |row|
   t.save
 end
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2016.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2014.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Game.new
@@ -79,7 +79,7 @@ csv.each do |row|
   t.save
 end
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2016.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2013.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Game.new
@@ -90,7 +90,7 @@ csv.each do |row|
   t.save
 end
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2016.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'games2012.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Game.new
