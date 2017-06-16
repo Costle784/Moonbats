@@ -33,6 +33,7 @@ class SelectedGame extends Component {
         })
         return self.state.opponent === game.opp && !!moonMatch
       })
+      console.log(filteredGames)
       self.setState({
         matchingGames: filteredGames
       })

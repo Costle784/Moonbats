@@ -18,9 +18,9 @@ class App extends Component {
       teamOptions: [
         {name: "Washington Nationals"},
         {name: "Philadelphia Phillies"},
-        {name: "Miami Marlins"},
+        {name: "Atlanta Braves"},
         {name: "New York Mets"},
-        {name: "Atlanta Braves"}
+        {name: "Miami Marlins"}
       ],
       schedule: [],
       selectedTeam:[],
@@ -29,6 +29,7 @@ class App extends Component {
   }
   addSchedule(e) {
     e.preventDefault()
+    console.log(e.target.value)
     let logopath = `http://localhost:3000/teams/${e.target.value}`
     let futuregamespath = `http://localhost:3000/teams/${e.target.value}/futuregames`
     axios.get(futuregamespath).then((response) => {
