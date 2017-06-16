@@ -1,6 +1,8 @@
 require 'csv'
 
-
+Team.destroy_all
+Game.destroy_all
+Moonphase.destroy_all
 
 
 nationals = Team.create!({
