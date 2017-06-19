@@ -7,7 +7,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
-    "homepage": "https://Costle784.github.io/moonbats-react/moonbats"
+    "homepage": "https://Costle784.github.io/moonbats"
   },
   "devDependencies": {
     "gh-pages": "^1.0.0",
