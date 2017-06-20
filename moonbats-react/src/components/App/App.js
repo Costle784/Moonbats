@@ -30,8 +30,8 @@ class App extends Component {
   addSchedule(e) {
     e.preventDefault()
     console.log(e.target.value)
-    let logopath = `http://localhost:3000/teams/${e.target.value}`
-    let futuregamespath = `http://localhost:3000/teams/${e.target.value}/futuregames`
+    let logopath = `https://moonbats.herokuapp.com/teams/${e.target.value}`
+    let futuregamespath = `https://moonbats.herokuapp.com/teams/${e.target.value}/futuregames`
     axios.get(futuregamespath).then((response) => {
       this.setState({
         schedule: response.data,
