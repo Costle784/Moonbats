@@ -61,6 +61,7 @@ class App extends Component {
               <Link to="/">Home</Link>
             </nav>
           </header>
+          <h1>hello</h1>
           <main>
             <Route exact path='/' render={() => {
               if(this.state.hasSearched) {
