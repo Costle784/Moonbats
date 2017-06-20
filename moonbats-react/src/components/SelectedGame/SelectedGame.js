@@ -21,12 +21,12 @@ class SelectedGame extends Component {
   }
   handleClick() {
     let self = this;
-    axios.get(`http://localhost:3000/moonphases?date=${self.state.date}`).then((response) => {
+    axios.get(`https://moonbats.herokuapp.com/moonphases?date=${self.state.date}`).then((response) => {
      self.setState({
        matchingPhases: response.data,
        gamePhase:parseInt(response.data[0].phase)
      })
-    axios.get(`http://localhost:3000/teams/${self.state.teamid}/pastgames`).then((response) => {
+    axios.get(`https://moonbats.herokuapp.com/teams/${self.state.teamid}/pastgames`).then((response) => {
       let filteredGames = response.data.filter((game) => {
         let moonMatch = self.state.matchingPhases.find((phase) => {
           return game.date === phase.date
