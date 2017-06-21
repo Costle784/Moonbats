@@ -5,12 +5,12 @@ body {
 }
 
 h1 {
-  margin: 0px;
-  padding:10px;
-  font-size:80px;
-  font-family: 'Cinzel', serif;
+  margin:0px;
+  padding-top:30px;
+  font-size:90px;
+  font-family:'Cinzel', serif;
   color:#FFF;
-  text-shadow:0 0 80px #FFF;
+  text-shadow:0 0 80px #FFF, 0 0 10px #000;
 }
 header {
   margin:0 auto;
@@ -20,4 +20,14 @@ header {
 }
 nav {
   padding:10px;
+  margin:20px;
+}
+.bats {
+  width:175px;
+}
+.home {
+  font-size:40px;
+  color:red;
+  font-family: 'Cinzel', serif;
+  margin:15px;
 }

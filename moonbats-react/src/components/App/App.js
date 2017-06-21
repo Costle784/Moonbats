@@ -29,7 +29,6 @@ class App extends Component {
   }
   addSchedule(e) {
     e.preventDefault()
-    console.log(e.target.value)
     let logopath = `https://moonbats.herokuapp.com/teams/${e.target.value}`
     let futuregamespath = `https://moonbats.herokuapp.com/teams/${e.target.value}/futuregames`
     axios.get(futuregamespath).then((response) => {
@@ -58,18 +57,22 @@ class App extends Component {
           <header>
             <h1 className='title'>Moonbats</h1>
             <nav>
-              <Link to="/">Home</Link>
+              <Link to="/Moonbats/" className='home'>Home</Link>
             </nav>
+
           </header>
-          <h1>hello</h1>
           <main>
-            <Route exact path='/' render={() => {
+            <Route exact path='/Moonbats/' render={() => {
               if(this.state.hasSearched) {
                 let pathname = `/teams/${this.state.selectedTeam.id}/games`
                   return <Redirect to={pathname} />
                 }
               return (
-                <TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)} />
+                <div>
+                  <p><TeamPicker teamOptions={this.state.teamOptions} handleChange={(e) => this.addSchedule(e)} /></p>
+                  <p><img src='https://media.giphy.com/media/aN9GqoR7OD3nq/giphy.gif'></img></p>
+                  <img className='bats' src='http://www.pngmart.com/files/1/Baseball-Bat-Transparent-PNG.png'></img>
+                </div>
                 )
               }
             }/>

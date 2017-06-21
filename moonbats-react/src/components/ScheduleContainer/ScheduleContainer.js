@@ -12,7 +12,7 @@ class ScheduleContainer extends Component {
 
     let schedule = this.props.schedule.map((game, i) => {
       let pathname = `/teams/${game.team_id}/games/${game.id}`
-      return <div key={i} ><Link to={{pathname}}>{game.date} vs {game.opp}</Link></div>
+      return <div key={i}><Link to={{pathname}} className='listitem'>{game.date} vs {game.opp}</Link></div>
     })
     return (
       <div>
