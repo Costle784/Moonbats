@@ -1,2 +1,0 @@
-class Moonphase < ApplicationRecord
-end
