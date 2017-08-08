@@ -3,10 +3,10 @@ var Link = require('react-router-dom').Link;
 
 function Header() {
   return (
-    <div>
+    <div className='header'>
       <h1 className='title'>Moonbats</h1>
       <nav>
-        <Link to="/Moonbats/" className='home'>Home</Link>
+        <Link to="/Moonbats" className='home'>Home</Link>
       </nav>
     </div>
   )
