@@ -10,3 +10,11 @@ body {
 .header {
   text-align: center;
 }
+
+.home-container {
+  text-align:center;
+}
+
+.bats {
+  width:175px;
+}
