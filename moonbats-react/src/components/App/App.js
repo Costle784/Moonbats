@@ -69,7 +69,7 @@ class App extends Component {
                 }
               return (
                 <div>
-                  <p><TeamPicker teamOptions={this.state.teamOptions}  /></p>
+                  <p><TeamPicker teamOptions={this.state.teamOptions} handleChange={ (e) => this.addSchedule(e) } /></p>
                   <p><img src='https://media.giphy.com/media/aN9GqoR7OD3nq/giphy.gif'></img></p>
                   <img className='bats' src='http://www.pngmart.com/files/1/Baseball-Bat-Transparent-PNG.png'></img>
                 </div>
